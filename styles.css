@@ -283,6 +283,9 @@ h2 { max-width: 850px; margin: 16px auto 10px; font-size: clamp(36px, 4vw, 54px)
 }
 .steps b, .steps span { display: block; }
 .steps span { margin-top: 7px; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.generation-modes {
+  display: none;
+}
 
 .features {
   scroll-margin-top: 96px;
@@ -792,12 +795,56 @@ h1 {
   .hero-stage { display: none; }
   .proof-strip { display: none; }
   h2 { font-size: 30px; }
-  .interface-frame img { aspect-ratio: 9 / 12; object-position: top left; animation: glow 4s ease-in-out infinite; }
-  .interface-frame { height: auto; padding: 8px; }
-  .interface-frame img { height: auto; }
-  .steps, .feature-grid, .plan-grid { grid-template-columns: 1fr; }
-  .steps { gap: 12px; }
-  .steps article::after { display: none; }
+  .interface-frame,
+  .steps {
+    display: none;
+  }
+  .generation-modes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .generation-modes article {
+    position: relative;
+    min-height: 122px;
+    padding: 20px 18px 18px 78px;
+    border: 1px solid rgba(143, 58, 255, 0.40);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(15, 13, 42, 0.86), rgba(7, 7, 23, 0.90));
+    box-shadow: inset 0 0 30px rgba(138, 38, 255, 0.09);
+    text-align: left;
+  }
+  .generation-modes i {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(166, 0, 255, 0.38), rgba(8, 124, 255, 0.18));
+    color: #d989ff;
+    box-shadow: 0 0 22px rgba(139, 35, 255, 0.34);
+    font-style: normal;
+    font-size: 22px;
+  }
+  .generation-modes b,
+  .generation-modes span {
+    display: block;
+  }
+  .generation-modes b {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.18;
+  }
+  .generation-modes span {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.42;
+  }
+  .feature-grid, .plan-grid { grid-template-columns: 1fr; }
   .feature-grid .highlight { order: 2; }
   .feature-grid .teal { order: 3; }
   .features { padding-top: 72px; }
