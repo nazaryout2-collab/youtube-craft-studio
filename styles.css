@@ -401,59 +401,11 @@ li::before { content: "✓"; margin-right: 8px; color: #c255ff; }
 }
 .neural {
   position: relative;
-  background-image:
-    radial-gradient(circle at 54% 26%, rgba(255,255,255,0.45), transparent 4rem),
-    radial-gradient(circle at 66% 38%, rgba(88, 112, 255, 0.72), transparent 5.8rem),
-    linear-gradient(135deg, #27104e 0%, #9c304d 38%, #4a72ff 100%);
-}
-.neural::before {
-  content: "";
-  position: absolute;
-  left: 8%;
-  bottom: 0;
-  width: 28%;
-  height: 58%;
-  background: linear-gradient(160deg, transparent 18%, rgba(255,255,255,0.12) 19%, transparent 21%), linear-gradient(#160d2d, #060713);
-  clip-path: polygon(48% 0, 63% 48%, 100% 100%, 0 100%, 36% 48%);
-  opacity: 0.95;
-}
-.neural::after {
-  content: "";
-  position: absolute;
-  right: 10%;
-  top: 30%;
-  width: 34%;
-  height: 34%;
-  border-radius: 50% 10% 50% 10%;
-  background: linear-gradient(135deg, #111a46, #8aa4ff);
-  transform: rotate(-18deg);
-  box-shadow: 0 0 18px rgba(96, 123, 255, 0.55);
+  background-image: linear-gradient(rgba(7, 4, 22, 0.04), rgba(7, 4, 22, 0.12)), url("assets/ai-cover.png");
 }
 .stock-video {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0;
-  background: #071429;
-}
-.stock-video i {
-  min-height: 100%;
-  background-size: cover;
-}
-.stock-video i:nth-child(1) { background: linear-gradient(160deg, #0c4d70, #141c43); }
-.stock-video i:nth-child(2) { background: linear-gradient(160deg, #243762, #bf714c); }
-.stock-video i:nth-child(3) { background: linear-gradient(160deg, #1c665f, #142247); }
-.stock-video i:nth-child(4) { background: linear-gradient(160deg, #123a61, #1d6b89); }
-.stock-video i:nth-child(5) { background: linear-gradient(160deg, #092d46, #0f596e); }
-.stock-video::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 100% 32px, 25% 100%;
-  opacity: 0.38;
+  background-image: linear-gradient(rgba(3, 10, 22, 0.03), rgba(3, 10, 22, 0.13)), url("assets/stock-cover.png");
 }
 .stock-video span,
 .neural span {
