@@ -18,7 +18,7 @@ if (menuButton && mobileMenu) {
 }
 
 const animatedItems = document.querySelectorAll(
-  ".hero-copy, .hero-stage, .proof-strip, .interface .pill, .interface h2, .interface .section-lead, .interface-frame, .generation-modes article, .steps article, .features .pill, .features h2, .features .section-lead, .feature-card, .mini-title, .mini-features article, .plans .pill, .plans h2, .plans .section-lead, .plan"
+  ".hero-copy, .hero-stage, .proof-strip, .interface .pill, .interface h2, .interface .section-lead, .interface-frame, .steps article, .features .pill, .features h2, .features .section-lead, .feature-card, .mini-title, .mini-features article, .plans .pill, .plans h2, .plans .section-lead, .plan"
 );
 
 animatedItems.forEach((item, index) => {
