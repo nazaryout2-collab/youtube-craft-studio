@@ -16,7 +16,7 @@
         <span class="brand-mark"></span>
         <span>YouTube Craft Studio</span>
       </a>
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Навигация">
         <a href="#features">Возможности</a>
         <a href="#plans">Тарифы</a>
       </nav>
@@ -30,34 +30,112 @@
     </header>
 
     <main>
-      <section class="shot hero-shot" aria-label="Первый экран YouTube Craft Studio">
-        <picture>
-          <source media="(max-width: 680px)" srcset="assets/hero-mobile.jpg" />
-          <img src="assets/hero-desktop.jpg" alt="Одна программа равна 10 YouTube каналов" />
-        </picture>
-        <a class="hotspot hero-start" href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer" aria-label="Начать сейчас"></a>
-        <a class="hotspot hero-features" href="#features" aria-label="Возможности"></a>
+      <section class="hero section">
+        <div class="hero-copy reveal">
+          <span class="pill">✦ AI-платформа для создания видео</span>
+          <h1>Одна программа = <span>10 YouTube</span> каналов</h1>
+          <p>Создавайте контент в десятки раз быстрее и автоматизируйте весь процесс производства видео - от сценария до готового ролика.</p>
+          <p class="accent-line">✧ Вставьте сценарий. <strong>Получите готовое видео.</strong></p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Начать сейчас <span>→</span></a>
+            <a class="secondary-btn" href="#features">Возможности <span>↓</span></a>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal" aria-hidden="true">
+          <div class="stage-ring"></div>
+          <div class="play-core"></div>
+          <article class="float-card ai"><i>◇</i><b>AI Generation</b><span>Уникальные сцены через нейросети</span></article>
+          <article class="float-card stock"><i>▻</i><b>Stock Videos</b><span>Доступ к премиальной библиотеке видео</span></article>
+          <article class="float-card voice"><i>🎙</i><b>Voice Over</b><span>Реалистичная озвучка на разных языках</span></article>
+          <article class="float-card auto"><i>▣</i><b>Auto Assembly</b><span>Автоматическая сборка и синхронизация</span></article>
+          <article class="float-card mod"><i>⌁</i><b>Moderation</b><span>Проверка видео на ошибки и AI-лапы</span></article>
+        </div>
+
+        <div class="proof-strip reveal">
+          <div class="earned"><strong>Более $18 000</strong><span>заработано с программой</span></div>
+          <div><i>⚡</i><strong>Быстро</strong><span>Создавайте видео в 10 раз быстрее</span></div>
+          <div><i>◎</i><strong>Эффективно</strong><span>Автоматизируйте рутину и экономьте время</span></div>
+          <div><i>⌁</i><strong>Надежно</strong><span>AI проверяет контент перед публикацией</span></div>
+          <div><i>↗</i><strong>Масштабируемо</strong><span>Запускайте десятки каналов на автопилоте</span></div>
+        </div>
       </section>
 
-      <section class="interface-page shot" aria-label="Интерфейс программы">
-        <div class="interface-bg">
-          <img src="assets/interface-desktop.jpg" alt="" />
+      <section class="interface section">
+        <span class="pill center">▣ Интерфейс программы</span>
+        <h2>Создавайте ролики <span>без сложного монтажа</span></h2>
+        <p class="section-lead">Весь процесс - от сценария до готового видео - в одном окне</p>
+        <div class="interface-frame reveal">
+          <img src="assets/interface.png" alt="Интерфейс программы YouTube Craft Studio" />
         </div>
-        <div class="interface-insert">
-          <img src="assets/interface.png" alt="Интерфейс YouTube Craft Studio" />
+        <div class="steps">
+          <article><i>▤</i><b>1. Сценарий</b><span>Вставьте сценарий или создайте его с нуля</span></article>
+          <article><i>◇</i><b>2. AI генерация</b><span>Нейросеть создает кадры и подбирает материалы</span></article>
+          <article><i>▻</i><b>3. Авто-сборка</b><span>Программа собирает видео, синхронизирует и озвучивает</span></article>
+          <article><i>⇩</i><b>4. Экспорт</b><span>Получите готовый ролик в высоком качестве</span></article>
         </div>
       </section>
 
-      <section class="features-shot shot" id="features" aria-label="Ключевые функции">
-        <img src="assets/features-desktop.jpg" alt="Ключевые функции YouTube Craft Studio" />
+      <section class="features section" id="features">
+        <span class="pill center">✦ Два способа создания видео</span>
+        <h2>Создавайте видео так, <span>как удобно именно вам</span></h2>
+        <p class="section-lead">Выберите подходящий формат и получайте профессиональные ролики быстрее, дешевле и качественнее.</p>
+        <div class="feature-grid">
+          <article class="feature-card purple">
+            <div class="icon cube">◇</div>
+            <h3>Полная генерация через нейросети</h3>
+            <span class="tag">Макс. качество</span>
+            <p>Нейросеть создает каждый кадр, озвучку и собирает готовый ролик.</p>
+            <ul>
+              <li>Уникальные сцены и кадры</li>
+              <li>Полная автоматизация</li>
+              <li>Проф. озвучка и синхронизация</li>
+              <li>Идеально для авторского контента</li>
+            </ul>
+            <div class="video-thumb neural"><span>▶</span></div>
+          </article>
+          <article class="feature-card highlight">
+            <span class="tag floating">★ Ключевая функция</span>
+            <div class="shield">✓</div>
+            <h3>Автоматическая модерация видео</h3>
+            <p>Проверяем видео на ошибки, неточности и AI-лапы перед публикацией.</p>
+            <ul>
+              <li>Проверка фактов и данных</li>
+              <li>Выявление визуальных неточностей</li>
+              <li>Поиск AI-ошибок и артефактов</li>
+              <li>Подсветка проблемных сцен</li>
+              <li>Безопасность и соответствие правилам платформ</li>
+            </ul>
+          </article>
+          <article class="feature-card teal">
+            <div class="icon dollar">$</div>
+            <h3>Создание на стоковых видео</h3>
+            <span class="tag teal-tag">Экономичный вариант</span>
+            <p>Программа найдет подходящие стоковые видео, синхронизирует с озвучкой и соберет готовый ролик.</p>
+            <ul>
+              <li>Не нужны платные нейросети</li>
+              <li>В 3 раза меньше затрат</li>
+              <li>Отличный старт для новичков</li>
+              <li>Быстрое создание контента</li>
+            </ul>
+            <div class="video-thumb stock-video"><span>▶</span></div>
+          </article>
+        </div>
+        <h3 class="mini-title">Все для создания идеального видео</h3>
+        <div class="mini-features">
+          <article><b>⚡</b><strong>Авто-сборка</strong><span>Автоматическая склейка сцен, переходов и эффектов</span></article>
+          <article><b>🎙</b><strong>Озвучка</strong><span>Реалистичная озвучка на разных языках</span></article>
+          <article><b>◇</b><strong>AI генерация</strong><span>Создание уникальных кадров и сцен через AI</span></article>
+          <article><b>▻</b><strong>Стоковые видео</strong><span>Доступ к премиальной библиотеке видео</span></article>
+          <article><b>⌁</b><strong>Модерация</strong><span>Проверка видео перед публикацией</span></article>
+          <article><b>↗</b><strong>Регулярные обновления</strong><span>Новые функции и улучшения качества</span></article>
+        </div>
       </section>
 
-      <section class="plans-page" id="plans">
-        <div class="plans-head">
-          <span>◇ Простые и выгодные решения</span>
-          <h2>Выберите тариф <strong>и начинайте создавать</strong></h2>
-          <p>Все варианты открывают доступ к возможностям платформы.</p>
-        </div>
+      <section class="plans section" id="plans">
+        <span class="pill center">◇ Простые и выгодные решения</span>
+        <h2>Выберите тариф <span>и начинайте создавать</span></h2>
+        <p class="section-lead">Все варианты открывают доступ к возможностям платформы.</p>
         <div class="plan-grid">
           <article class="plan">
             <div class="plan-icon">▣</div>
@@ -79,13 +157,12 @@
             <div class="plan-icon">∞</div>
             <h3>Навсегда</h3>
             <b>$269</b>
-            <p>Единоразовая покупка без подписок и ограничений</p>
+            <p>Единоразовая покупка без ограничений</p>
             <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Начать сейчас</a>
           </article>
         </div>
       </section>
     </main>
-
     <script src="script.js"></script>
   </body>
 </html>
