@@ -515,6 +515,82 @@ li::before { content: "✓"; margin-right: 8px; color: #c255ff; }
 @keyframes rise { to { opacity: 1; transform: translateY(0); } }
 @keyframes glow { 0%,100% { filter: saturate(1); } 50% { filter: saturate(1.18); } }
 
+.motion-item {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: none;
+  transition:
+    opacity 0.7s ease var(--motion-delay, 0ms),
+    transform 0.7s ease var(--motion-delay, 0ms),
+    filter 0.7s ease var(--motion-delay, 0ms);
+}
+
+.motion-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-copy.motion-item {
+  transform: translateX(-22px);
+}
+
+.hero-copy.motion-item.is-visible {
+  transform: translateX(0);
+}
+
+.hero-stage.motion-item {
+  transform: translateX(22px) scale(0.98);
+}
+
+.hero-stage.motion-item.is-visible {
+  transform: translateX(0) scale(1);
+}
+
+.hero-stage.is-visible .float-card {
+  animation: cardFloat 5.8s ease-in-out infinite;
+}
+
+.hero-stage.is-visible .float-card:nth-of-type(2) { animation-delay: -1.1s; }
+.hero-stage.is-visible .float-card:nth-of-type(3) { animation-delay: -2.2s; }
+.hero-stage.is-visible .float-card:nth-of-type(4) { animation-delay: -3.3s; }
+.hero-stage.is-visible .float-card:nth-of-type(5) { animation-delay: -4.4s; }
+
+.play-core,
+.video-thumb span {
+  animation: playPulse 2.8s ease-in-out infinite;
+}
+
+.interface-frame.is-visible img {
+  animation: interfaceDrift 8s ease-in-out infinite;
+}
+
+.feature-card.is-visible,
+.plan.is-visible {
+  filter: saturate(1.08);
+}
+
+.feature-card:hover,
+.plan:hover,
+.mini-features article:hover {
+  transform: translateY(-4px);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+@keyframes cardFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+@keyframes playPulse {
+  0%, 100% { box-shadow: 0 0 22px rgba(106, 78, 255, 0.55); }
+  50% { box-shadow: 0 0 34px rgba(166, 60, 255, 0.92); }
+}
+
+@keyframes interfaceDrift {
+  0%, 100% { transform: scale(1); filter: saturate(1.02); }
+  50% { transform: scale(1.015); filter: saturate(1.12); }
+}
+
 /* Final layout polish */
 main {
   overflow: hidden;
@@ -743,4 +819,27 @@ h1 {
   }
   .plans { min-height: auto; }
   .plan { min-height: 0; }
+  .hero-copy.motion-item,
+  .hero-stage.motion-item {
+    transform: translateY(18px);
+  }
+  .hero-copy.motion-item.is-visible,
+  .hero-stage.motion-item.is-visible {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+  .motion-item {
+    opacity: 1;
+    transform: none;
+  }
 }
