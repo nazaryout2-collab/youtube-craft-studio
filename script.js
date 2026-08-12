@@ -39,3 +39,13 @@ const observer = new IntersectionObserver(
 );
 
 animatedItems.forEach((item) => observer.observe(item));
+
+const playCore = document.querySelector(".play-core");
+
+if (playCore) {
+  playCore.addEventListener("click", () => {
+    playCore.classList.remove("spin-now");
+    void playCore.offsetWidth;
+    playCore.classList.add("spin-now");
+  });
+}
