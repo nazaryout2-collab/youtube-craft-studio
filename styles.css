@@ -191,6 +191,7 @@ h1 span, h2 span, .accent-line strong {
 .hero-stage.is-visible .play-core {
   animation: playSpinIn 1.15s cubic-bezier(.18,.9,.2,1.12) both, playCoreGlow 2.8s ease-in-out 1.15s infinite;
 }
+.hero-stage.is-visible .play-core.spin-now,
 .play-core.spin-now {
   animation: playSpinClick 0.9s cubic-bezier(.18,.9,.2,1.12) both, playCoreGlow 2.8s ease-in-out 0.9s infinite;
 }

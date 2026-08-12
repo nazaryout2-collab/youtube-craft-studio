@@ -43,6 +43,10 @@ animatedItems.forEach((item) => observer.observe(item));
 const playCore = document.querySelector(".play-core");
 
 if (playCore) {
+  window.setTimeout(() => {
+    playCore.classList.add("spin-now");
+  }, 450);
+
   playCore.addEventListener("click", () => {
     playCore.classList.remove("spin-now");
     void playCore.offsetWidth;
