@@ -3,162 +3,221 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="YouTube Craft Studio - программа для автоматизации создания YouTube-видео." />
-    <title>YouTube Craft Studio</title>
+    <meta name="description" content="YouTube Craft Studio — программа для быстрого создания контента через слайды, Pexels, озвучку и автоматическую сборку видео." />
+    <title>YouTube Craft Studio — новый подход к созданию контента</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260812-12" />
+    <link rel="stylesheet" href="styles.css?v=20260821-rebrand" />
   </head>
   <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"></div>
+
     <header class="topbar">
       <a class="brand" href="https://t.me/Ycstudiosell" target="_blank" rel="noreferrer">
-        <span class="brand-mark"></span>
+        <span class="brand-mark">YC</span>
         <span>YouTube Craft Studio</span>
       </a>
       <nav class="desktop-nav" aria-label="Навигация">
-        <a href="#features">Возможности</a>
+        <a href="#rebrand">Ребрендинг</a>
+        <a href="#features">Функции</a>
         <a href="#plans">Тарифы</a>
       </nav>
-      <a class="primary-btn nav-cta" href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Начать сейчас <span>→</span></a>
+      <a class="primary-btn nav-cta" href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Купить программу <span>→</span></a>
       <button class="menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="mobile-menu" aria-hidden="true">
-        <a href="https://t.me/steykinh" target="_blank" rel="noreferrer">Задать вопрос <strong>@steykinh</strong></a>
-        <a href="https://t.me/Ycstudiosell" target="_blank" rel="noreferrer">Канал <strong>YouTube Craft Studio</strong></a>
-        <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Юз <strong>Перейти</strong></a>
+        <a href="#rebrand">Ребрендинг <strong>новый формат</strong></a>
+        <a href="#features">Функции <strong>слайды + Pexels</strong></a>
+        <a href="#plans">Тарифы <strong>доступнее</strong></a>
+        <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Бот <strong>перейти</strong></a>
       </div>
     </header>
 
     <main>
-      <section class="hero section">
+      <section class="hero section" id="rebrand">
         <div class="hero-copy reveal">
-          <span class="pill">✦ AI-платформа для создания видео</span>
-          <h1>Одна программа = <span>10 YouTube</span> каналов</h1>
-          <p>Создавайте контент в десятки раз быстрее и автоматизируйте весь процесс производства видео - от сценария до готового ролика.</p>
-          <p class="accent-line">✧ Вставьте сценарий. <strong>Получите готовое видео.</strong></p>
+          <span class="pill hot">🚀 Ребрендинг YC Studio</span>
+          <h1>Новый подход к созданию контента: <span>дешевле, быстрее, стабильнее</span></h1>
+          <p>
+            Мы сместили фокус с нестабильной генерации AI-видеокадров на практичные форматы:
+            слайды с движением, Pexels-генерацию, озвучку и автоматическую сборку роликов.
+          </p>
+          <p class="accent-line">Не усложняем софт ради галочек — делаем инструмент, которым реально удобно пользоваться каждый день.</p>
           <div class="hero-actions">
             <a class="primary-btn" href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Начать сейчас <span>→</span></a>
-            <a class="secondary-btn" href="#features">Возможности <span>↓</span></a>
+            <a class="secondary-btn" href="#compare">Посмотреть разницу <span>↓</span></a>
           </div>
         </div>
 
-        <div class="hero-stage reveal" aria-hidden="true">
-          <div class="stage-ring"></div>
-          <button class="play-core" type="button" aria-label="Запустить анимацию"></button>
-          <article class="float-card ai"><i>◇</i><b>AI Generation</b><span>Уникальные сцены через нейросети</span></article>
-          <article class="float-card stock"><i>▻</i><b>Stock Videos</b><span>Доступ к премиальной библиотеке видео</span></article>
-          <article class="float-card voice"><i>🎙</i><b>Voice Over</b><span>Реалистичная озвучка на разных языках</span></article>
-          <article class="float-card auto"><i>▣</i><b>Auto Assembly</b><span>Автоматическая сборка и синхронизация</span></article>
-          <article class="float-card mod"><i>⌁</i><b>Moderation</b><span>Проверка видео на ошибки и AI-лапы</span></article>
+        <div class="hero-stage reveal" aria-label="Новый формат проекта">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="yc-core">
+            <span>YC</span>
+            <small>STUDIO</small>
+          </div>
+
+          <article class="signal-card old-card">
+            <em>Старый подход</em>
+            <strong>AI видеокадры</strong>
+            <span>дорого · долго · нестабильно</span>
+            <div class="danger-bar"><i></i></div>
+          </article>
+
+          <article class="signal-card new-card">
+            <em>Новый подход</em>
+            <strong>Слайды + Pexels</strong>
+            <span>доступно · просто · стабильно</span>
+            <div class="success-bar"><i></i></div>
+          </article>
+
+          <div class="gallery-card">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+          </div>
         </div>
 
         <div class="proof-strip reveal">
-          <div class="earned"><strong>Более $18 000</strong><span>заработано с программой</span></div>
-          <div><i>⚡</i><strong>Быстро</strong><span>Создавайте видео в 10 раз быстрее</span></div>
-          <div><i>◎</i><strong>Эффективно</strong><span>Автоматизируйте рутину и экономьте время</span></div>
-          <div><i>⌁</i><strong>Надежно</strong><span>AI проверяет контент перед публикацией</span></div>
-          <div><i>↗</i><strong>Масштабируемо</strong><span>Запускайте десятки каналов на автопилоте</span></div>
+          <div><i>×2</i><strong>Доступнее</strong><span>стоимость снижена почти в два раза</span></div>
+          <div><i>90%+</i><strong>Стабильнее</strong><span>основной упор на надёжные форматы</span></div>
+          <div><i>⚡</i><strong>Быстрее</strong><span>слайды и Pexels собираются заметно быстрее</span></div>
+          <div><i>✓</i><strong>Практичнее</strong><span>контент без лишней сложности и ожидания</span></div>
+        </div>
+      </section>
+
+      <section class="compare section" id="compare">
+        <div class="section-head">
+          <span class="pill center">⚡ Почему мы поменяли направление</span>
+          <h2>Меньше борьбы с ограничениями. <span>Больше результата.</span></h2>
+          <p class="section-lead">
+            AI-видеокадры остаются в программе, но больше не являются главным сценарием. Основной фокус — стабильные способы производства контента.
+          </p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="compare-card old">
+            <span class="status">старый фокус</span>
+            <h3>AI-видеокадры как основа</h3>
+            <ul>
+              <li>дольше ожидание генерации</li>
+              <li>выше стоимость использования</li>
+              <li>нестабильность из-за ограничений Google</li>
+              <li>подходит скорее для отдельных задач</li>
+            </ul>
+          </article>
+          <article class="compare-card new">
+            <span class="status">новый фокус</span>
+            <h3>Слайды, Pexels и подвиды</h3>
+            <ul>
+              <li>быстрее сборка готового ролика</li>
+              <li>более стабильная генерация изображений</li>
+              <li>ниже цена для пользователя</li>
+              <li>визуально динамично за счёт эффектов движения</li>
+            </ul>
+          </article>
         </div>
       </section>
 
       <section class="interface section">
         <span class="pill center">▣ Интерфейс программы</span>
-        <h2>Создавайте ролики <span>без сложного монтажа</span></h2>
-        <p class="section-lead">Весь процесс - от сценария до готового видео - в одном окне</p>
+        <h2>Создавайте видео <span>без сложного монтажа</span></h2>
+        <p class="section-lead">Сценарий, промпты, изображения, Pexels, озвучка, эффекты и финальная сборка — в одном рабочем окне.</p>
         <div class="interface-frame reveal">
-          <img src="assets/interface.png" alt="Интерфейс программы YouTube Craft Studio" />
+          <img src="assets/interface.png" alt="Интерфейс YouTube Craft Studio" />
         </div>
         <div class="steps">
-          <article><i>▧</i><b>1. Слайды</b><span>Создание роликов из изображений с zoom/pan эффектами</span></article>
-          <article><i>◇</i><b>2. AI генерация стандартная</b><span>Вставьте промпты, фото и видео с озвучкой. Получите готовый ролик</span></article>
-          <article><i>✦</i><b>3. AI генерация простая</b><span>Вставьте сценарий. Получите готовый ролик</span></article>
-          <article><i>▻</i><b>4. Pexels</b><span>Подбор стоковых видео под сценарий и озвучку</span></article>
+          <article><i>01</i><b>Слайды</b><span>изображения превращаются в динамичные сцены через zoom, pan, shake и другие эффекты</span></article>
+          <article><i>02</i><b>Pexels-генерация</b><span>подбор стоковых видео под сценарий, смысл сцены и озвучку</span></article>
+          <article><i>03</i><b>Озвучка</b><span>реалистичный голос и синхронизация длительности сцен</span></article>
+          <article><i>04</i><b>AI-видеокадры</b><span>остаются как дополнительный инструмент для маленьких проектов и отдельных сцен</span></article>
         </div>
       </section>
 
       <section class="features section" id="features">
-        <span class="pill center">✦ Два способа создания видео</span>
-        <h2>Создавайте видео так, <span>как удобно именно вам</span></h2>
-        <p class="section-lead">Выберите подходящий формат и получайте профессиональные ролики быстрее, дешевле и качественнее.</p>
+        <span class="pill center">🔥 Основные функции после ребрендинга</span>
+        <h2>Фокус на том, что <span>работает быстрее и стабильнее</span></h2>
+        <p class="section-lead">YC Studio теперь продаётся не как “сложная AI-машина”, а как практичный конвейер контента.</p>
+
         <div class="feature-grid">
-          <article class="feature-card purple">
-            <div class="icon cube"><span></span></div>
-            <h3>Полная генерация через нейросети</h3>
-            <span class="tag">Макс. качество</span>
-            <p>Нейросеть создает каждый кадр, озвучку и собирает готовый ролик.</p>
+          <article class="feature-card hero-feature">
+            <span class="tag">главный формат</span>
+            <div class="icon">▣</div>
+            <h3>Слайды с эффектами движения</h3>
+            <p>Качественные изображения с zoom/pan/shake часто выглядят как полноценное видео, но создаются быстрее и стабильнее.</p>
             <ul>
-              <li>Уникальные сцены и кадры</li>
-              <li>Полная автоматизация</li>
-              <li>Идеально для авторского контента</li>
-            </ul>
-            <div class="video-thumb neural"><span>▶</span></div>
-          </article>
-          <article class="feature-card highlight">
-            <span class="tag floating">★ Ключевая функция</span>
-            <div class="shield">✓</div>
-            <h3>Автоматическая модерация видео</h3>
-            <p>Проверяем видео на ошибки, неточности и AI-лапы перед публикацией.</p>
-            <ul>
-              <li>Проверка фактов и данных</li>
-              <li>Выявление визуальных неточностей</li>
-              <li>Поиск AI-ошибок и артефактов</li>
-              <li>Подсветка проблемных сцен</li>
-              <li>Безопасность и соответствие правилам платформ</li>
+              <li>эффекты движения и заметности</li>
+              <li>быстрая финальная сборка</li>
+              <li>подходит для длинных роликов</li>
             </ul>
           </article>
-          <article class="feature-card teal">
-            <div class="icon dollar">$</div>
-            <h3>Создание на стоковых видео</h3>
-            <span class="tag teal-tag">Экономичный вариант</span>
-            <p>Программа найдет подходящие стоковые видео, синхронизирует с озвучкой и соберет готовый ролик.</p>
+
+          <article class="feature-card pexels-feature">
+            <span class="tag green">стабильный сценарий</span>
+            <div class="icon">▶</div>
+            <h3>Pexels-генерация</h3>
+            <p>Программа подбирает подходящие видео, синхронизирует их с озвучкой и собирает готовый ролик.</p>
             <ul>
-              <li>Отличный старт для новичков</li>
-              <li>Быстрое создание контента</li>
+              <li>меньше ожидания</li>
+              <li>природа, города, лайфстайл, бизнес и другие ниши</li>
+              <li>хороший вариант для массового контента</li>
             </ul>
-            <div class="video-thumb stock-video">
-              <span>▶</span>
-            </div>
+          </article>
+
+          <article class="feature-card ai-feature">
+            <span class="tag muted-tag">дополнительно</span>
+            <div class="icon">◇</div>
+            <h3>AI-видеокадры остаются</h3>
+            <p>Мы честно не ставим их в центр продукта: формат полезен для отдельных сцен, но сейчас не самый стабильный для больших проектов.</p>
+            <ul>
+              <li>для небольших задач</li>
+              <li>для уникальных фрагментов</li>
+              <li>не исчезает из программы</li>
+            </ul>
           </article>
         </div>
-        <h3 class="mini-title">Все для создания идеального видео</h3>
+
         <div class="mini-features">
-          <article><b>⚡</b><strong>Авто-сборка</strong><span>Автоматическая склейка сцен, переходов и эффектов</span></article>
-          <article><b>🎙</b><strong>Озвучка</strong><span>Реалистичная озвучка на разных языках</span></article>
-          <article><b>◇</b><strong>AI генерация</strong><span>Создание уникальных кадров и сцен через AI</span></article>
-          <article><b>▻</b><strong>Стоковые видео</strong><span>Доступ к премиальной библиотеке видео</span></article>
-          <article><b>⌁</b><strong>Модерация</strong><span>Проверка видео перед публикацией</span></article>
-          <article><b>↗</b><strong>Регулярные обновления</strong><span>Новые функции и улучшения качества</span></article>
+          <article><b>⚡</b><strong>Быстрее</strong><span>меньше ожидания и меньше ручной возни</span></article>
+          <article><b>₽</b><strong>Доступнее</strong><span>новый формат позволил снизить цену</span></article>
+          <article><b>✓</b><strong>Стабильнее</strong><span>упор на более надёжные пайплайны</span></article>
+          <article><b>🎙</b><strong>Озвучка</strong><span>голос и сцены собираются в готовый ролик</span></article>
+          <article><b>🛡</b><strong>Модерация</strong><span>проверка контента перед публикацией</span></article>
+          <article><b>↗</b><strong>Развитие</strong><span>обновления под реальные задачи пользователей</span></article>
         </div>
       </section>
 
       <section class="plans section" id="plans">
-        <span class="pill center">◇ Простые и выгодные решения</span>
-        <h2>Выберите тариф <span>и начинайте создавать</span></h2>
-        <p class="section-lead">Все варианты открывают доступ к возможностям платформы.</p>
+        <span class="pill center">💸 Новые доступные тарифы</span>
+        <h2>Программа стала <span>почти в 2 раза доступнее</span></h2>
+        <p class="section-lead">Купить можно через Telegram-бота. Карта, СБП и крипта — в зависимости от выбранного способа оплаты.</p>
         <div class="plan-grid">
           <article class="plan">
-            <div class="plan-icon">▣</div>
+            <div class="plan-icon">1</div>
             <h3>1 месяц</h3>
-            <b>$29</b>
-            <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Начать сейчас</a>
+            <b>1 400 ₽</b>
+            <small>или $17 для крипты</small>
+            <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Купить</a>
           </article>
-          <article class="plan blue">
-            <em>-7%</em>
-            <div class="plan-icon">▣</div>
+          <article class="plan featured">
+            <em>популярно</em>
+            <div class="plan-icon">3</div>
             <h3>3 месяца</h3>
-            <b>$85</b>
-            <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Начать сейчас</a>
+            <b>3 600 ₽</b>
+            <small>или $45 для крипты</small>
+            <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Купить</a>
           </article>
-          <article class="plan teal">
-            <em>Лучшая цена</em>
+          <article class="plan lifetime">
+            <em>выгодно</em>
             <div class="plan-icon">∞</div>
             <h3>Навсегда</h3>
-            <b>$269</b>
-            <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Начать сейчас</a>
+            <b>8 100 ₽</b>
+            <small>или $100 для крипты</small>
+            <a href="https://t.me/Ycstudio_Bot?start=start" target="_blank" rel="noreferrer">Купить</a>
           </article>
         </div>
       </section>
     </main>
-    <script src="script.js?v=20260812-12"></script>
+
+    <script src="script.js?v=20260821-rebrand"></script>
   </body>
 </html>

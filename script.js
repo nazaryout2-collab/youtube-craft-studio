@@ -8,6 +8,14 @@ if (menuButton && mobileMenu) {
     mobileMenu.setAttribute("aria-hidden", String(!isOpen));
   });
 
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      mobileMenu.setAttribute("aria-hidden", "true");
+    });
+  });
+
   document.addEventListener("click", (event) => {
     if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
       mobileMenu.classList.remove("open");
@@ -18,12 +26,32 @@ if (menuButton && mobileMenu) {
 }
 
 const animatedItems = document.querySelectorAll(
-  ".hero-copy, .hero-stage, .proof-strip, .interface .pill, .interface h2, .interface .section-lead, .interface-frame, .steps article, .features .pill, .features h2, .features .section-lead, .feature-card, .mini-title, .mini-features article, .plans .pill, .plans h2, .plans .section-lead, .plan"
+  [
+    ".hero-copy",
+    ".hero-stage",
+    ".proof-strip",
+    ".section-head",
+    ".compare-card",
+    ".interface .pill",
+    ".interface h2",
+    ".interface .section-lead",
+    ".interface-frame",
+    ".steps article",
+    ".features .pill",
+    ".features h2",
+    ".features .section-lead",
+    ".feature-card",
+    ".mini-features article",
+    ".plans .pill",
+    ".plans h2",
+    ".plans .section-lead",
+    ".plan"
+  ].join(", ")
 );
 
 animatedItems.forEach((item, index) => {
   item.classList.add("motion-item");
-  item.style.setProperty("--motion-delay", `${Math.min(index % 6, 5) * 70}ms`);
+  item.style.setProperty("--motion-delay", `${Math.min(index % 7, 6) * 65}ms`);
 });
 
 const observer = new IntersectionObserver(
@@ -35,21 +63,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+  { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
 );
 
 animatedItems.forEach((item) => observer.observe(item));
-
-const playCore = document.querySelector(".play-core");
-
-if (playCore) {
-  window.setTimeout(() => {
-    playCore.classList.add("spin-now");
-  }, 450);
-
-  playCore.addEventListener("click", () => {
-    playCore.classList.remove("spin-now");
-    void playCore.offsetWidth;
-    playCore.classList.add("spin-now");
-  });
-}
