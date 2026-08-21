@@ -899,6 +899,28 @@ li::before {
   filter: blur(0);
 }
 
+.hero-copy h1.motion-item,
+.section-head h2.motion-item,
+.features h2.motion-item,
+.plans h2.motion-item,
+.interface h2.motion-item {
+  transform: translateY(34px) scale(0.98);
+  filter: blur(10px);
+}
+
+.hero-copy p.motion-item,
+.feature-card li.motion-item,
+.steps span.motion-item,
+.mini-features span.motion-item {
+  transform: translateY(18px);
+  filter: blur(6px);
+}
+
+.gallery-card div.motion-item,
+.interface-frame.motion-item img {
+  transform-origin: center;
+}
+
 .hero-stage.is-visible .signal-card,
 .hero-stage.is-visible .gallery-card {
   animation: cardFloat 5.4s ease-in-out infinite;
@@ -950,13 +972,52 @@ li::before {
   h2 { font-size: 34px; }
   .hero-copy p, .section-lead { font-size: 16px; }
   .hero-actions { display: grid; }
-  .hero-stage { min-height: 500px; margin-top: 34px; border-radius: 30px; }
-  .signal-card { width: 210px; padding: 16px; }
-  .old-card { left: 16px; top: 38px; }
-  .new-card { right: 16px; top: 52px; }
-  .yc-core { width: 132px; height: 132px; border-radius: 30px; }
+  .hero-stage {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 34px;
+    padding: 18px;
+    border-radius: 30px;
+    overflow: visible;
+  }
+  .hero-stage::before,
+  .orbit {
+    display: none;
+  }
+  .signal-card,
+  .yc-core,
+  .gallery-card {
+    position: relative;
+    inset: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    transform: none;
+  }
+  .signal-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+  .yc-core {
+    width: 132px;
+    height: 132px;
+    justify-self: center;
+    border-radius: 30px;
+    order: 2;
+  }
   .yc-core span { font-size: 48px; }
-  .gallery-card { left: 20px; right: 20px; bottom: 24px; width: auto; }
+  .old-card { order: 1; }
+  .new-card { order: 3; }
+  .gallery-card {
+    order: 4;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 12px;
+    border-radius: 22px;
+  }
   .proof-strip, .compare-grid, .steps, .feature-grid, .plan-grid { grid-template-columns: 1fr; }
   .proof-strip { margin-top: 22px; }
   .interface-frame { display: none; }
@@ -969,12 +1030,9 @@ li::before {
 @media (max-width: 540px) {
   .brand span:last-child { max-width: 178px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   h1 { font-size: 42px; }
-  .hero-stage { min-height: 450px; }
-  .signal-card { width: 186px; }
+  .hero-stage { min-height: 0; }
+  .signal-card { width: 100%; }
   .signal-card strong { font-size: 18px; }
-  .new-card { top: 142px; }
-  .old-card { top: 34px; }
-  .yc-core { top: 47%; }
   .gallery-card { grid-template-columns: repeat(2, 1fr); }
   .mini-features { grid-template-columns: 1fr; }
 }
