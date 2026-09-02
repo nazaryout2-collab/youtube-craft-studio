@@ -15,6 +15,7 @@ const videos = {
 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*+?";
 
 function Scramble({ text }: { text: string }) {
+  if (text === "В 10× БЫСТРЕЕ.") text = "НО В 10× БЫСТРЕЕ.";
   const [value, setValue] = useState(text);
   useEffect(() => { let frame = 0; const timer = window.setInterval(() => { setValue(text.split("").map((letter, index) => letter === " " || index < frame / 3 ? letter : chars[Math.floor(Math.random() * chars.length)]).join("")); if (++frame > text.length * 3) window.clearInterval(timer); }, 28); return () => window.clearInterval(timer); }, [text]);
   return <>{value}</>;
