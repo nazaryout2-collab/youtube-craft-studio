@@ -1,12 +1,1 @@
-{
-  "name": "youtube-craft-studio-landing",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "npx http-server . -p 5173 -c-1",
-    "build": "node scripts/build.mjs"
-  },
-  "devDependencies": {
-    "http-server": "^14.1.1"
-  }
-}
+{"name":"youtube-craft-studio-landing","version":"2.0.0","private":true,"type":"module","scripts":{"dev":"vite","build":"tsc -b && vite build","preview":"vite preview"},"dependencies":{"@vitejs/plugin-react":"latest","framer-motion":"^12.40.0","lucide-react":"^0.344.0","react":"^18.3.1","react-dom":"^18.3.1","vite":"latest"},"devDependencies":{"@types/react":"latest","@types/react-dom":"latest","autoprefixer":"latest","postcss":"latest","tailwindcss":"^3.4.17","typescript":"latest"}}
