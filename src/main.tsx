@@ -5,8 +5,8 @@ import { ArrowDown, ArrowUpRight, AudioLines, Bot, Captions, Check, Film, Images
 import "./index.css";
 
 const BOT_URL = "https://t.me/Ycstudio_Bot?start=start";
+const HERO_ART = `${import.meta.env.BASE_URL}hero-timeline.png`;
 const videos = {
-  hero: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_083515_290e5a10-0b95-41af-a5e2-32b6389baa4d.mp4",
   story: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_092455_089c54f8-3b03-4966-9df1-e9746063d0ef.mp4",
   engine: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_095810_ecea3dd2-fc5e-4e41-8696-4219290b6589.mp4",
   studio: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_095750_32a52ce0-2005-45c9-9093-41f03fde9530.mp4",
@@ -30,9 +30,7 @@ function Nav() {
 }
 
 function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null), target = useRef(0), seeking = useRef(false);
-  const seek = () => { const video = videoRef.current; if (!video || !Number.isFinite(video.duration) || seeking.current) return; seeking.current = true; video.currentTime = Math.min(Math.max(target.current, 0), Math.max(0, video.duration - .04)); };
-  return <section className="hero" id="top" onMouseMove={(event) => { const video = videoRef.current; if (!video?.duration) return; target.current = Math.min(Math.max(target.current + event.movementX / innerWidth * video.duration * .8, 0), video.duration); seek(); }}><video ref={videoRef} src={videos.hero} muted playsInline preload="auto" onSeeked={() => { seeking.current = false; if (videoRef.current && Math.abs(videoRef.current.currentTime - target.current) > .03) seek(); }} /><div className="hero-veil" /><div className="dot-grid" /><div className="hero-watermark">AUTONOMY</div><div className="hero-content"><motion.div className="kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .6 }}>AI VIDEO PRODUCTION / 2026</motion.div><div className="hero-title-row"><motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .2 }}><Scramble text="ВАШИ РУКИ." /></motion.h1><span className="signal"><i /> SYSTEM ONLINE</span></div><div className="hero-title-row second"><span className="hero-index">01—05</span><motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .45 }}><Scramble text="В 10× БЫСТРЕЕ." /></motion.h1></div><div className="hero-bottom"><p>YouTube Craft Studio превращает сценарий в готовое видео: создаёт визуал, подбирает кадры, озвучивает, синхронизирует и собирает результат.</p><a href="#system" className="scroll-link">Изучить систему <ArrowDown /></a></div></div></section>;
+  return <section className="hero" id="top"><div className="hero-art" aria-hidden="true"><img src={HERO_ART} alt="" /></div><div className="hero-veil" /><div className="dot-grid" /><div className="hero-watermark">AUTONOMY</div><div className="hero-content"><motion.div className="kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .6 }}>AI VIDEO PRODUCTION / 2026</motion.div><div className="hero-title-row"><motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .2 }}><Scramble text="ВАШИ РУКИ." /></motion.h1><span className="signal"><i /> SYSTEM ONLINE</span></div><div className="hero-title-row second"><span className="hero-index">01—05</span><motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .45 }}><Scramble text="В 10× БЫСТРЕЕ." /></motion.h1></div><div className="hero-bottom"><p>YouTube Craft Studio превращает сценарий в готовое видео: создаёт визуал, подбирает кадры, озвучивает, синхронизирует и собирает результат.</p><a href="#system" className="scroll-link">Изучить систему <ArrowDown /></a></div></div></section>;
 }
 
 const pipeline = [
