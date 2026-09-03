@@ -18,8 +18,22 @@ function Ambient() {
   return <div className="ambient" aria-hidden="true"><i /><i /><i /><div className="ambient-grid" /></div>;
 }
 
+const railScenes = [
+  ["01", "СЦЕНАРИЙ", "script"],
+  ["02", "ВИЗУАЛ", "visual"],
+  ["03", "КАДРЫ", "frames"],
+  ["04", "ОЗВУЧКА", "voice"],
+  ["05", "ЭФФЕКТЫ", "effects"],
+  ["06", "АВТОМОНТАЖ", "edit"]
+];
+
+function SceneRail() {
+  const items = [...railScenes, ...railScenes];
+  return <div className="scene-rail" aria-label="Этапы создания видео"><motion.div className="scene-track" animate={{ x: ["0%", "-50%"] }} transition={{ duration: 28, ease: "linear", repeat: Infinity }}>{items.map(([number,title,type],index)=><article className={`rail-card rail-${type}`} key={`${number}-${index}`}><div className="rail-visual"><i /><i /><i /></div><div className="rail-meta"><span>{number}</span><b>{title}</b><em>YC / {number}</em></div></article>)}</motion.div></div>;
+}
+
 function Hero() {
-  return <header className="hero" id="top"><Ambient /><Nav /><div className="hero-copy"><motion.span initial={{opacity:0,y:15}} animate={{opacity:1,y:0}}>[ AI VIDEO PRODUCTION ]</motion.span><motion.h1 initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.85}}>ВАШИ РУКИ,<br /><em>НО В 10 РАЗ БЫСТРЕЕ</em></motion.h1><motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.45}}>YouTube Craft Studio превращает сценарий в готовое видео — создаёт визуал, подбирает кадры, озвучивает и собирает результат в одном проекте.</motion.p></div><div className="hero-foot"><span>FLOW · PEXELS · MIX · TTS</span><span>СОЗДАНО ДЛЯ АВТОРОВ</span></div></header>;
+  return <header className="hero" id="top"><Ambient /><Nav /><div className="hero-copy"><motion.span initial={{opacity:0,y:15}} animate={{opacity:1,y:0}}>[ AI VIDEO PRODUCTION ]</motion.span><motion.h1 initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.85}}>ВАШИ РУКИ,<br /><em>НО В 10 РАЗ БЫСТРЕЕ</em></motion.h1><motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.45}}>YouTube Craft Studio превращает сценарий в готовое видео — создаёт визуал, подбирает кадры, озвучивает и собирает результат в одном проекте.</motion.p></div><SceneRail /><div className="hero-foot"><span>FLOW · PEXELS · MIX · TTS</span><span>СОЗДАНО ДЛЯ АВТОРОВ</span></div></header>;
 }
 
 const features = [
