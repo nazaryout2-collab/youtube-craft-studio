@@ -18,6 +18,15 @@ function Ambient() {
   return <div className="ambient" aria-hidden="true"><i /><i /><i /><div className="ambient-grid" /></div>;
 }
 
+const reveal = {
+  hidden: { opacity: 0, y: 46, filter: "blur(10px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" }
+};
+
+function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  return <motion.div className={className} variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: .18 }} transition={{ duration: .85, delay, ease: [.16, 1, .3, 1] }}>{children}</motion.div>;
+}
+
 const railScenes = [
   ["IMAGE 1", "rail-image-01.png"],
   ["IMAGE 2", "rail-image-02.png"],
@@ -44,7 +53,7 @@ const features = [
 ];
 
 function Features() {
-  return <section className="features" id="features"><div className="section-intro"><span>[ 01 / ВОЗМОЖНОСТИ ]</span><h2>ОДНА СИСТЕМА.<br />ВЕСЬ ПРОЦЕСС.</h2><p>Рутинные операции выполняет программа. Творческие решения остаются за вами.</p></div><div className="feature-list">{features.map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p><ArrowRight /></article>)}</div></section>;
+  return <section className="features" id="features"><Reveal className="section-intro"><span>[ 01 / ВОЗМОЖНОСТИ ]</span><h2>ОДНА СИСТЕМА.<br />ВЕСЬ ПРОЦЕСС.</h2><p>Рутинные операции выполняет программа. Творческие решения остаются за вами.</p></Reveal><div className="feature-list">{features.map(([n,t,d],index)=><motion.article key={n} initial={{opacity:0,x:-35}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.45}} transition={{duration:.65,delay:index*.09,ease:[.16,1,.3,1]}}><span>{n}</span><h3>{t}</h3><p>{d}</p><ArrowRight /></motion.article>)}</div></section>;
 }
 
 const timelineScenes = ["Сценарий", "Изображение", "Озвучка", "Эффекты", "Автомонтаж", "Готово"];
@@ -53,17 +62,27 @@ function GenerationDemo() {
   const [running,setRunning]=useState(false); const [step,setStep]=useState(-1);
   useEffect(()=>{if(!running)return;setStep(0);const timer=window.setInterval(()=>setStep(s=>{if(s>=timelineScenes.length-1){window.clearInterval(timer);setRunning(false);return s}return s+1}),1250);return()=>window.clearInterval(timer)},[running]);
   const start=()=>{setStep(-1);setRunning(true)};
-  return <section className="demo" id="demo"><Ambient /><div className="demo-head"><span>[ 02 / ЖИВАЯ ДЕМОНСТРАЦИЯ ]</span><h2>ОДНО НАЖАТИЕ.<br />ПОНЯТНЫЙ ПРОЦЕСС.</h2><p>Нажмите «Генерация» — сцены пройдут путь от текста до готового фрагмента прямо перед вами.</p></div><div className="demo-stage">
+  return <section className="demo" id="demo"><Ambient /><Reveal className="demo-head"><span>[ 02 / ЖИВАЯ ДЕМОНСТРАЦИЯ ]</span><h2>ОДНО НАЖАТИЕ.<br />ПОНЯТНЫЙ ПРОЦЕСС.</h2><p>Нажмите «Генерация» — сцены пройдут путь от текста до готового фрагмента прямо перед вами.</p></Reveal><motion.div className="demo-stage" initial={{opacity:0,y:70,scale:.96}} whileInView={{opacity:1,y:0,scale:1}} viewport={{once:true,amount:.15}} transition={{duration:1,ease:[.16,1,.3,1]}}>
     <div className="demo-screen"><div className="screen-top"><span>ПРОЕКТ / NEW VIDEO</span><b>{step<0?"ОЖИДАНИЕ":step===5?"ГОТОВО":`ЭТАП ${step+1} ИЗ 6`}</b></div><div className="screen-visual"><AnimatePresence mode="wait"><motion.div key={step} initial={{opacity:0,scale:.86,y:24,filter:"blur(18px)"}} animate={{opacity:1,scale:1,y:0,filter:"blur(0px)"}} exit={{opacity:0,scale:1.08,y:-18,filter:"blur(10px)"}} transition={{duration:.8,ease:[.16,1,.3,1]}} className={`visual-state state-${step}`}><Sparkles /><strong>{step<0?"ВАШ ПРОЕКТ":timelineScenes[Math.max(0,step)]}</strong><small>{step<0?"Нажмите кнопку, чтобы начать":step===5?"Видео собрано":"Система работает"}</small></motion.div></AnimatePresence></div></div>
     <div className="timeline"><div className="timeline-line"><motion.i animate={{width:step<0?"0%":`${(step+1)*(100/timelineScenes.length)}%`}} transition={{duration:1,ease:[.16,1,.3,1]}} /></div>{timelineScenes.map((name,index)=><div className={`timeline-step ${index<=step?"done":""}`} key={name}><b>{String(index+1).padStart(2,"0")}</b><span>{name}</span><i>{index<step?<Check />:index===step?<motion.em animate={{rotate:360,scale:[1,1.25,1]}} transition={{repeat:Infinity,duration:1.3,ease:"linear"}} />:null}</i></div>)}</div>
     <motion.button className={`generate ${running?"running":""}`} onClick={start} disabled={running} whileTap={{scale:.97}}>{running?<><span className="button-progress" /><b>ГЕНЕРАЦИЯ · {Math.max(1,step+1)}/6</b></>:<><Sparkles /><b>{step===5?"ЗАПУСТИТЬ ЕЩЁ РАЗ":"ГЕНЕРАЦИЯ"}</b><ArrowRight /></>}</motion.button>
-  </div></section>;
+  </motion.div></section>;
+}
+
+const projectFrames = [
+  ["01", "ИДЕЯ", "Сценарий превращается в точную структуру сцен.", "rail-image-02.png"],
+  ["02", "КАДР", "Каждая сцена получает собственный визуальный язык.", "rail-image-05.png"],
+  ["03", "РЕЗУЛЬТАТ", "Голос, движение и монтаж сходятся в готовом видео.", "rail-image-06.png"]
+];
+
+function ProjectFlow() {
+  return <section className="project-flow"><Reveal className="flow-heading"><span>[ 03 / ОДИН ПРОЕКТ ]</span><h2>ОТ МЫСЛИ<br />ДО ГОТОВОГО КАДРА.</h2><p>Вы видите весь путь и можете вмешаться в любой момент. Автоматизация ускоряет работу, но финальное решение всегда остаётся за автором.</p></Reveal><div className="flow-grid">{projectFrames.map(([n,title,text,file],index)=><motion.article key={n} initial={{opacity:0,y:70,rotate:index===1?0:index===0?-2:2}} whileInView={{opacity:1,y:0,rotate:0}} viewport={{once:true,amount:.2}} transition={{duration:.9,delay:index*.14,ease:[.16,1,.3,1]}}><img src={`${import.meta.env.BASE_URL}assets/${file}`} alt="" /><div><span>{n}</span><h3>{title}</h3><p>{text}</p></div></motion.article>)}</div><Reveal className="flow-stats" delay={.1}><div><strong>300</strong><span>СЦЕН В ОДНОМ ПРОЕКТЕ</span></div><div><strong>6</strong><span>ЭТАПОВ В ОДНОМ ПОТОКЕ</span></div><div><strong>1</strong><span>ПОНЯТНЫЙ ТАЙМЛАЙН</span></div></Reveal></section>;
 }
 
 function Access() {
-  return <section className="access" id="access"><div><span>[ 03 / ДОСТУП ]</span><h2>СТУДИЯ, КОТОРАЯ<br />РАБОТАЕТ ВМЕСТЕ С ВАМИ.</h2></div><div className="access-copy"><p>Локальная программа для Windows, macOS и Linux. Проекты и исходники остаются на вашем компьютере.</p><ul><li><Check /> Генерация и подбор визуала</li><li><Check /> Озвучка и режим без голоса</li><li><Check /> Таймлайн, эффекты и переходы</li><li><Check /> Приватный чат участников</li></ul><a href={BOT_URL} target="_blank">Открыть бота <ArrowRight /></a></div></section>;
+  return <section className="access" id="access"><Reveal><span>[ 04 / ДОСТУП ]</span><h2>СТУДИЯ, КОТОРАЯ<br />РАБОТАЕТ ВМЕСТЕ С ВАМИ.</h2></Reveal><Reveal className="access-copy" delay={.15}><p>Локальная программа для Windows, macOS и Linux. Проекты и исходники остаются на вашем компьютере.</p><ul><li><Check /> Генерация и подбор визуала</li><li><Check /> Озвучка и режим без голоса</li><li><Check /> Таймлайн, эффекты и переходы</li><li><Check /> Приватный чат участников</li></ul><a href={BOT_URL} target="_blank">Открыть бота <ArrowRight /></a></Reveal></section>;
 }
 
-function App(){return <><Hero/><Features/><GenerationDemo/><Access/><footer><Logo/><span>© 2026 YOUTUBE CRAFT STUDIO</span><a href={BOT_URL} target="_blank">TELEGRAM <ArrowRight/></a></footer></>}
+function App(){return <><Hero/><Features/><GenerationDemo/><ProjectFlow/><Access/><footer><Logo/><span>© 2026 YOUTUBE CRAFT STUDIO</span><a href={BOT_URL} target="_blank">TELEGRAM <ArrowRight/></a></footer></>}
 
 createRoot(document.getElementById("root")!).render(<React.StrictMode><App /></React.StrictMode>);
