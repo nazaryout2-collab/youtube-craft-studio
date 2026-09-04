@@ -69,20 +69,10 @@ function GenerationDemo() {
   </motion.div></section>;
 }
 
-const projectFrames = [
-  ["01", "ИДЕЯ", "Сценарий превращается в точную структуру сцен.", "rail-image-02.png"],
-  ["02", "КАДР", "Каждая сцена получает собственный визуальный язык.", "rail-image-05.png"],
-  ["03", "РЕЗУЛЬТАТ", "Голос, движение и монтаж сходятся в готовом видео.", "rail-image-06.png"]
-];
-
-function ProjectFlow() {
-  return <section className="project-flow"><Reveal className="flow-heading"><span>[ 03 / ОДИН ПРОЕКТ ]</span><h2>ОТ МЫСЛИ<br />ДО ГОТОВОГО КАДРА.</h2><p>Вы видите весь путь и можете вмешаться в любой момент. Автоматизация ускоряет работу, но финальное решение всегда остаётся за автором.</p></Reveal><div className="flow-grid">{projectFrames.map(([n,title,text,file],index)=><motion.article key={n} initial={{opacity:0,y:70,rotate:index===1?0:index===0?-2:2}} whileInView={{opacity:1,y:0,rotate:0}} viewport={{once:true,amount:.2}} transition={{duration:.9,delay:index*.14,ease:[.16,1,.3,1]}}><img src={`${import.meta.env.BASE_URL}assets/${file}`} alt="" /><div><span>{n}</span><h3>{title}</h3><p>{text}</p></div></motion.article>)}</div><Reveal className="flow-stats" delay={.1}><div><strong>300</strong><span>СЦЕН В ОДНОМ ПРОЕКТЕ</span></div><div><strong>6</strong><span>ЭТАПОВ В ОДНОМ ПОТОКЕ</span></div><div><strong>1</strong><span>ПОНЯТНЫЙ ТАЙМЛАЙН</span></div></Reveal></section>;
-}
-
 function Access() {
-  return <section className="access" id="access"><Reveal><span>[ 04 / ДОСТУП ]</span><h2>СТУДИЯ, КОТОРАЯ<br />РАБОТАЕТ ВМЕСТЕ С ВАМИ.</h2></Reveal><Reveal className="access-copy" delay={.15}><p>Локальная программа для Windows, macOS и Linux. Проекты и исходники остаются на вашем компьютере.</p><ul><li><Check /> Генерация и подбор визуала</li><li><Check /> Озвучка и режим без голоса</li><li><Check /> Таймлайн, эффекты и переходы</li><li><Check /> Приватный чат участников</li></ul><a href={BOT_URL} target="_blank">Открыть бота <ArrowRight /></a></Reveal></section>;
+  return <section className="access" id="access"><Reveal><span>[ 03 / ДОСТУП ]</span><h2>СТУДИЯ, КОТОРАЯ<br />РАБОТАЕТ ВМЕСТЕ С ВАМИ.</h2></Reveal><Reveal className="access-copy" delay={.15}><p>Локальная программа для Windows, macOS и Linux. Проекты и исходники остаются на вашем компьютере.</p><ul><li><Check /> Генерация и подбор визуала</li><li><Check /> Озвучка и режим без голоса</li><li><Check /> Таймлайн, эффекты и переходы</li><li><Check /> Приватный чат участников</li></ul><a href={BOT_URL} target="_blank">Открыть бота <ArrowRight /></a></Reveal></section>;
 }
 
-function App(){return <><Hero/><Features/><GenerationDemo/><ProjectFlow/><Access/><footer><Logo/><span>© 2026 YOUTUBE CRAFT STUDIO</span><a href={BOT_URL} target="_blank">TELEGRAM <ArrowRight/></a></footer></>}
+function App(){return <><Hero/><Features/><GenerationDemo/><Access/><footer><Logo/><span>© 2026 YOUTUBE CRAFT STUDIO</span><a href={BOT_URL} target="_blank">TELEGRAM <ArrowRight/></a></footer></>}
 
 createRoot(document.getElementById("root")!).render(<React.StrictMode><App /></React.StrictMode>);
