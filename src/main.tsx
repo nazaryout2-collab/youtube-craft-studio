@@ -42,7 +42,7 @@ function SceneRail() {
 }
 
 function Hero() {
-  return <header className="hero" id="top"><Ambient /><Nav /><motion.div className="hero-status" initial={{opacity:0,y:-10}} animate={{opacity:1,y:0}} transition={{delay:.2}}><span><i /> СИСТЕМА ГОТОВА</span><span>СЦЕНАРИЙ → КАДРЫ → ГОЛОС → АВТОМОНТАЖ</span><span>ОДИН ПРОЕКТ</span></motion.div><div className="hero-copy"><motion.span initial={{opacity:0,y:15}} animate={{opacity:1,y:0}}>[ AI VIDEO PRODUCTION ]</motion.span><motion.h1 initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.85}}>ВАШИ РУКИ,<br /><em>НО В 10 РАЗ БЫСТРЕЕ</em></motion.h1><motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.45}}>YouTube Craft Studio превращает сценарий в готовое видео — создаёт визуал, подбирает кадры, озвучивает и собирает результат в одном проекте.</motion.p></div><SceneRail /><div className="hero-foot"><span>FLOW · PEXELS · MIX · TTS</span><span>СОЗДАНО ДЛЯ АВТОРОВ</span></div></header>;
+  return <header className="hero" id="top"><Ambient /><Nav /><div className="hero-copy"><motion.span initial={{opacity:0,y:15}} animate={{opacity:1,y:0}}>[ AI VIDEO PRODUCTION ]</motion.span><motion.h1 initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.85}}>ВАШИ РУКИ,<br /><em>НО В 10 РАЗ БЫСТРЕЕ</em></motion.h1><motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.45}}>Сценарий, визуал, голос и монтаж — в одном проекте.</motion.p></div><SceneRail /></header>;
 }
 
 const features = [
@@ -69,10 +69,32 @@ function GenerationDemo() {
   </motion.div></section>;
 }
 
-function Access() {
-  return <section className="access" id="access"><Reveal><span>[ 03 / ДОСТУП ]</span><h2>СТУДИЯ, КОТОРАЯ<br />РАБОТАЕТ ВМЕСТЕ С ВАМИ.</h2></Reveal><Reveal className="access-copy" delay={.15}><p>Локальная программа для Windows, macOS и Linux. Проекты и исходники остаются на вашем компьютере.</p><ul><li><Check /> Генерация и подбор визуала</li><li><Check /> Озвучка и режим без голоса</li><li><Check /> Таймлайн, эффекты и переходы</li><li><Check /> Приватный чат участников</li></ul><a href={BOT_URL} target="_blank">Открыть бота <ArrowRight /></a></Reveal></section>;
+const timeModes = {
+  manual: {
+    label: "БЕЗ ПРОГРАММЫ",
+    total: "9 ЧАСОВ",
+    note: "Почти всё время требует вашего участия",
+    rows: [["Подготовка и разметка сценария", "1 час"], ["Генерация и поиск видеоряда", "4 часа"], ["Озвучка и синхронизация", "1,5 часа"], ["Монтаж и переходы", "2 часа"], ["Субтитры, проверка и экспорт", "30 минут"]]
+  },
+  studio: {
+    label: "С YC STUDIO",
+    total: "1 ЧАС",
+    note: "Программа работает сама — вы можете заниматься своими делами",
+    rows: [["Настройка проекта", "15 минут"], ["Видеоряд и озвучка", "35 минут · автоматически"], ["Автомонтаж и эффекты", "автоматически"], ["Проверка результата", "5 минут"], ["Финальный экспорт", "5 минут"]]
+  }
+};
+
+function TimeComparison() {
+  const [mode,setMode]=useState<keyof typeof timeModes>("manual");
+  const data=timeModes[mode];
+  return <section className={`compare compare-${mode}`}><Reveal className="compare-head"><span>[ 03 / ЭКОНОМИЯ ВРЕМЕНИ ]</span><h2>ОДИН РОЛИК.<br /><em>ДВА СЦЕНАРИЯ РАБОТЫ.</em></h2><p>Пример расчёта для ролика с готовым сценарием. Переключите режим и сравните, сколько ручной работы остаётся у автора.</p></Reveal><motion.div className="compare-shell" initial={{opacity:0,y:60}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{duration:.9,ease:[.16,1,.3,1]}}><div className="compare-switch" role="group" aria-label="Режим сравнения"><button className={mode==="manual"?"active":""} onClick={()=>setMode("manual")}>БЕЗ ПРОГРАММЫ</button><button className={mode==="studio"?"active":""} onClick={()=>setMode("studio")}>С YC STUDIO</button><motion.i layout transition={{type:"spring",stiffness:360,damping:32}} className={mode}/></div><AnimatePresence mode="wait"><motion.div className="compare-content" key={mode} initial={{opacity:0,x:mode==="studio"?45:-45,filter:"blur(10px)"}} animate={{opacity:1,x:0,filter:"blur(0px)"}} exit={{opacity:0,x:mode==="studio"?-35:35,filter:"blur(8px)"}} transition={{duration:.48,ease:[.16,1,.3,1]}}><div className="time-total"><span>{data.label}</span><strong>{data.total}</strong><p>{data.note}</p><div className="clock-face"><i/><i/><i/><i/><b>{mode==="studio"?"1H":"9H"}</b></div></div><div className="time-rows">{data.rows.map(([name,time],index)=><motion.div key={name} initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{delay:index*.07}}><span>{String(index+1).padStart(2,"0")}</span><b>{name}</b><em>{time}</em></motion.div>)}</div></motion.div></AnimatePresence><div className="saving-line"><span>ЭКОНОМИЯ НА ОДНОМ РОЛИКЕ</span><strong>ДО 8 ЧАСОВ</strong><p>Стоимость автоматизации — меньше <b>$20 в месяц</b></p></div></motion.div></section>;
 }
 
-function App(){return <><Hero/><Features/><GenerationDemo/><Access/><footer><Logo/><span>© 2026 YOUTUBE CRAFT STUDIO</span><a href={BOT_URL} target="_blank">TELEGRAM <ArrowRight/></a></footer></>}
+function Access() {
+  const plans=[["1 МЕСЯЦ","1 400 ₽","$17","Для знакомства и первого рабочего проекта"],["3 МЕСЯЦА","3 600 ₽","$45","Для регулярного выпуска роликов"],["НАВСЕГДА","8 000 ₽","$100","Один платёж — постоянный доступ"]];
+  return <section className="access" id="access"><Reveal className="pricing-head"><span>[ 04 / ТАРИФЫ ]</span><h2>ВЫБЕРИТЕ<br />СВОЙ ДОСТУП.</h2><p>Во всех тарифах — полный функционал программы и приватный чат участников.</p></Reveal><div className="price-grid">{plans.map(([name,rub,usd,text],index)=><motion.article key={name} initial={{opacity:0,y:45}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.3}} transition={{duration:.7,delay:index*.1,ease:[.16,1,.3,1]}} className={index===1?"featured":""}><span>{String(index+1).padStart(2,"0")}</span><h3>{name}</h3><strong>{rub}</strong><em>{usd} · криптовалюта</em><p>{text}</p><ul><li><Check/> Полный функционал</li><li><Check/> Все обновления</li><li><Check/> Приватный чат</li></ul></motion.article>)}</div><Reveal className="price-action"><div><span>ВАШИ РУКИ, НО В 10 РАЗ БЫСТРЕЕ</span><p>Оплата и получение ключа — через официального Telegram-бота.</p></div><a href={BOT_URL} target="_blank">ПОЛУЧИТЬ ДОСТУП <ArrowRight/></a></Reveal></section>;
+}
+
+function App(){return <><Hero/><Features/><GenerationDemo/><TimeComparison/><Access/><footer><Logo/><span>© 2026 YOUTUBE CRAFT STUDIO</span><a href={BOT_URL} target="_blank">TELEGRAM <ArrowRight/></a></footer></>}
 
 createRoot(document.getElementById("root")!).render(<React.StrictMode><App /></React.StrictMode>);
